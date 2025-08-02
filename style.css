@@ -93,23 +93,23 @@ body {
 
 .handles {
     position: absolute;
-    top: -60px;
+    top: -120px;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 120px;
     transform-style: preserve-3d;
 }
 
 .handle {
     position: absolute;
-    width: 50px;
-    height: 80px;
+    width: 80px;
+    height: 120px;
     transform-style: preserve-3d;
     display: flex;
     flex-direction: row;
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 40px 40px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     clip-path: polygon(
         0% 0%, 20% 0%, 20% 45%, 25% 75%, 75% 75%, 80% 45%, 80% 0%, 100% 0%,
         100% 60%, 85% 100%, 15% 100%, 0% 60%
@@ -118,12 +118,12 @@ body {
 
 .left-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg);
+    transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg);
 }
 
 .right-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg);
+    transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg);
 }
 
 .handle-stripe {
@@ -167,19 +167,19 @@ body {
 
 @keyframes handleSwayLeft {
     0%, 100% {
-        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
 @keyframes handleSwayRight {
     0%, 100% {
-        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
