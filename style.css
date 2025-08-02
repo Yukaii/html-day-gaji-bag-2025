@@ -118,12 +118,12 @@ body {
 
 .left-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg);
 }
 
 .right-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg);
 }
 
 .handle-stripe {
@@ -167,19 +167,19 @@ body {
 
 @keyframes handleSwayLeft {
     0%, 100% {
-        transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
 @keyframes handleSwayRight {
     0%, 100% {
-        transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
