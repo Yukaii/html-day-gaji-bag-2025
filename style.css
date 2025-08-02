@@ -93,17 +93,17 @@ body {
 
 .handles {
     position: absolute;
-    top: -50px;
+    top: -60px;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     transform-style: preserve-3d;
 }
 
 .handle {
     position: absolute;
     width: 50px;
-    height: 60px;
+    height: 80px;
     transform-style: preserve-3d;
     display: flex;
     flex-direction: row;
@@ -116,24 +116,14 @@ body {
     );
 }
 
-.left-handle.front {
-    left: 50px;
-    transform: translateZ(70px) rotate(180deg);
+.left-handle {
+    left: 50%;
+    transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg);
 }
 
-.right-handle.front {
-    right: 50px;
-    transform: translateZ(70px) rotate(180deg);
-}
-
-.left-handle.back {
-    left: 50px;
-    transform: translateZ(-70px) rotate(180deg);
-}
-
-.right-handle.back {
-    right: 50px;
-    transform: translateZ(-70px) rotate(180deg);
+.right-handle {
+    left: 50%;
+    transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg);
 }
 
 .handle-stripe {
@@ -175,38 +165,30 @@ body {
     }
 }
 
-@keyframes handleSwayFront {
+@keyframes handleSwayLeft {
     0%, 100% {
-        transform: translateZ(70px) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateZ(70px) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-90deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
-@keyframes handleSwayBack {
+@keyframes handleSwayRight {
     0%, 100% {
-        transform: translateZ(-70px) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateZ(-70px) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(90deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
-.left-handle.front {
-    animation: handleSwayFront 4s ease-in-out infinite;
+.left-handle {
+    animation: handleSwayLeft 4s ease-in-out infinite;
 }
 
-.right-handle.front {
-    animation: handleSwayFront 4s ease-in-out infinite 0.5s;
-}
-
-.left-handle.back {
-    animation: handleSwayBack 4s ease-in-out infinite;
-}
-
-.right-handle.back {
-    animation: handleSwayBack 4s ease-in-out infinite 0.5s;
+.right-handle {
+    animation: handleSwayRight 4s ease-in-out infinite 0.5s;
 }
 
 .tote-bag:hover {
