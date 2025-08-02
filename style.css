@@ -45,6 +45,11 @@ body {
     min-height: 16px;
 }
 
+.stripe.white {
+    flex: 0 0 3px;
+    min-height: 3px;
+}
+
 .stripe.blue {
     background: #3483C6;
 }
@@ -118,17 +123,22 @@ body {
 
 .left-handle {
     left: 50%;
-    transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg);
 }
 
 .right-handle {
     left: 50%;
-    transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg);
 }
 
 .handle-stripe {
     flex: 1;
     min-height: 10px;
+}
+
+.handle-stripe.white {
+    flex: 0 0 2px;
+    min-height: 2px;
 }
 
 .handle-stripe.red {
@@ -167,19 +177,19 @@ body {
 
 @keyframes handleSwayLeft {
     0%, 100% {
-        transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-40px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
 @keyframes handleSwayRight {
     0%, 100% {
-        transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(0deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(0deg);
     }
     50% {
-        transform: translateX(-40px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(2deg);
+        transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg) rotateZ(2deg);
     }
 }
 
