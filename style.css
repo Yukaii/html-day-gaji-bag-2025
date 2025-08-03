@@ -1,5 +1,5 @@
 :root {
-    /* Bag dimensions */
+    /* Bag dimensions (fixed base size) */
     --bag-width: 280px;
     --bag-height: 220px;
     --bag-side-width: 140px;
@@ -37,10 +37,10 @@
     --perspective: 1200px;
     --perspective-mobile: 800px;
 
-    /* Media query bag-body */
-    --bag-width-mobile: 240px;
-    --bag-height-mobile: 180px;
+    /* Bag scale for responsiveness */
+    --bag-scale: 1;
 }
+
 
 * {
     margin: 0;
@@ -108,6 +108,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 60vh;
+    max-width: 100vw;
+    overflow-x: auto;
     perspective: var(--perspective);
 }
 
@@ -115,6 +117,7 @@ body {
     position: relative;
     transform-style: preserve-3d;
     animation: float var(--float-duration) ease-in-out infinite, rotate var(--rotate-duration) linear infinite;
+    transform: scale(var(--bag-scale));
 }
 
 .bag-body {
@@ -315,16 +318,23 @@ body {
 }
 
 @media (max-width: 768px) {
-    .tote-bag {
-        transform: scale(0.8);
+    :root {
+        --bag-scale: 0.8;
     }
-
     .container {
         perspective: var(--perspective-mobile);
     }
+}
 
-    .bag-body {
-        width: var(--bag-width-mobile);
-        height: var(--bag-height-mobile);
+@media (max-width: 500px) {
+    :root {
+        --bag-scale: 0.6;
     }
 }
+
+@media (max-width: 400px) {
+    :root {
+        --bag-scale: 0.45;
+    }
+}
+
