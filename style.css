@@ -1,3 +1,47 @@
+:root {
+    /* Bag dimensions */
+    --bag-width: 280px;
+    --bag-height: 220px;
+    --bag-side-width: 140px;
+    --bag-bottom-height: 140px;
+    --bag-depth: 70px;
+
+    /* Handle dimensions */
+    --handle-width: 80px;
+    --handle-height: 120px;
+    --handle-radius: 40px;
+    --handle-top-offset: -120px;
+    --handle-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    /* Stripe heights */
+    --stripe-height: 16px;
+    --stripe-white-height: 3px;
+    --handle-stripe-height: 10px;
+    --handle-stripe-white-height: 2px;
+
+    /* Colors */
+    --color-blue: #3483C6;
+    --color-green: #72A055;
+    --color-red: #B7675D;
+    --color-white: #ffffff;
+    --color-yellow: #F4D03F;
+
+    /* Animation durations */
+    --float-duration: 6s;
+    --rotate-duration: 6s;
+    --handle-sway-duration: 4s;
+    --handle-sway-delay: 0.5s;
+    --handle-hover-duration: 1s;
+
+    /* Perspective */
+    --perspective: 1200px;
+    --perspective-mobile: 800px;
+
+    /* Media query bag-body */
+    --bag-width-mobile: 240px;
+    --bag-height-mobile: 180px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -64,19 +108,19 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 60vh;
-    perspective: 1200px;
+    perspective: var(--perspective);
 }
 
 .tote-bag {
     position: relative;
     transform-style: preserve-3d;
-    animation: float 6s ease-in-out infinite, rotate 6s linear infinite;
+    animation: float var(--float-duration) ease-in-out infinite, rotate var(--rotate-duration) linear infinite;
 }
 
 .bag-body {
     position: relative;
-    width: 280px;
-    height: 220px;
+    width: var(--bag-width);
+    height: var(--bag-height);
     transform-style: preserve-3d;
 }
 
@@ -90,79 +134,79 @@ body {
 
 .stripe {
     flex: 1;
-    min-height: 16px;
+    min-height: var(--stripe-height);
 }
 
 .stripe.white {
-    flex: 0 0 3px;
-    min-height: 3px;
+    flex: 0 0 var(--stripe-white-height);
+    min-height: var(--stripe-white-height);
 }
 
 .stripe.blue {
-    background: #3483C6;
+    background: var(--color-blue);
 }
 
 .stripe.green {
-    background: #72A055;
+    background: var(--color-green);
 }
 
 .stripe.red {
-    background: #B7675D;
+    background: var(--color-red);
 }
 
 .stripe.white {
-    background: #ffffff;
+    background: var(--color-white);
 }
 
 .front {
-    width: 280px;
-    height: 220px;
-    transform: translateZ(70px);
+    width: var(--bag-width);
+    height: var(--bag-height);
+    transform: translateZ(var(--bag-depth));
 }
 
 .back {
-    width: 280px;
-    height: 220px;
-    transform: translateZ(-70px) rotateY(180deg);
+    width: var(--bag-width);
+    height: var(--bag-height);
+    transform: translateZ(calc(-1 * var(--bag-depth))) rotateY(180deg);
 }
 
 .left {
-    width: 140px;
-    height: 220px;
-    transform: rotateY(-90deg) translateZ(70px);
+    width: var(--bag-side-width);
+    height: var(--bag-height);
+    transform: rotateY(-90deg) translateZ(var(--bag-depth));
 }
 
 .right {
-    width: 140px;
-    height: 220px;
-    transform: rotateY(90deg) translateZ(210px);
+    width: var(--bag-side-width);
+    height: var(--bag-height);
+    transform: rotateY(90deg) translateZ(calc(3 * var(--bag-depth)));
 }
 
 .bottom {
-    width: 280px;
-    height: 140px;
+    width: var(--bag-width);
+    height: var(--bag-bottom-height);
     transform: rotateX(-90deg) translateZ(0px);
 }
 
 .handles {
     position: absolute;
-    top: -120px;
+    top: var(--handle-top-offset);
     left: 0;
     width: 100%;
-    height: 120px;
+    height: var(--handle-height);
     transform-style: preserve-3d;
 }
 
 .handle {
     position: absolute;
-    width: 80px;
-    height: 120px;
+    width: var(--handle-width);
+    height: var(--handle-height);
     transform-style: preserve-3d;
     display: flex;
     flex-direction: row;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 var(--handle-radius) var(--handle-radius);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--handle-box-shadow);
     clip-path: polygon(
         0% 0%, 20% 0%, 20% 45%, 25% 75%, 75% 75%, 80% 45%, 80% 0%, 100% 0%,
         100% 60%, 85% 100%, 15% 100%, 0% 60%
@@ -171,38 +215,38 @@ body {
 
 .left-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(70px) rotateY(-180deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(var(--bag-depth)) rotateY(-180deg) rotate(180deg);
 }
 
 .right-handle {
     left: 50%;
-    transform: translateX(-25px) translateZ(-70px) rotateY(180deg) rotate(180deg);
+    transform: translateX(-25px) translateZ(calc(-1 * var(--bag-depth))) rotateY(180deg) rotate(180deg);
 }
 
 .handle-stripe {
     flex: 1;
-    min-height: 10px;
+    min-height: var(--handle-stripe-height);
 }
 
 .handle-stripe.white {
-    flex: 0 0 2px;
-    min-height: 2px;
+    flex: 0 0 var(--handle-stripe-white-height);
+    min-height: var(--handle-stripe-white-height);
 }
 
 .handle-stripe.red {
-    background: #B7675D;
+    background: var(--color-red);
 }
 
 .handle-stripe.yellow {
-    background: #F4D03F;
+    background: var(--color-yellow);
 }
 
 .handle-stripe.green {
-    background: #72A055;
+    background: var(--color-green);
 }
 
 .handle-stripe.blue {
-    background: #3483C6;
+    background: var(--color-blue);
 }
 
 @keyframes float {
@@ -242,11 +286,11 @@ body {
 }
 
 .left-handle {
-    animation: handleSwayLeft 4s ease-in-out infinite;
+    animation: handleSwayLeft var(--handle-sway-duration) ease-in-out infinite;
 }
 
 .right-handle {
-    animation: handleSwayRight 4s ease-in-out infinite 0.5s;
+    animation: handleSwayRight var(--handle-sway-duration) ease-in-out infinite var(--handle-sway-delay);
 }
 
 .tote-bag:hover {
@@ -256,7 +300,7 @@ body {
 }
 
 .tote-bag:hover .handle {
-    animation-duration: 1s;
+    animation-duration: var(--handle-hover-duration);
 }
 
 .container::before {
@@ -276,11 +320,11 @@ body {
     }
 
     .container {
-        perspective: 800px;
+        perspective: var(--perspective-mobile);
     }
 
     .bag-body {
-        width: 240px;
-        height: 180px;
+        width: var(--bag-width-mobile);
+        height: var(--bag-height-mobile);
     }
 }
